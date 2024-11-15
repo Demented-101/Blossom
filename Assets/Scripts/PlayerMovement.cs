@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         moveForward.y = 0; // remove the y component to make sure player doent move down
 
         moveRight = cam.transform.right;
-        moveRight.y = 0;
+        moveRight.y = 0; 
     }
 
     void FixedUpdate() //code for WASD and space key movement
@@ -32,12 +32,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = (moveRight * moveHorizontal) + (moveForward * moveVertical);
 
         rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime); 
-
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKey(KeyCode.Space) && isGrounded()) // check player can jump/stop flying
         {
-            rb.AddForce(UnityEngine.Vector3.up * jumpAmount, ForceMode.Impulse); 
+            rb.AddForce(UnityEngine.Vector3.up * jumpAmount, ForceMode.Impulse);
+            Debug.Log("jumped");
         }
 
     }
 
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, 1.1f);
+    }
 }
