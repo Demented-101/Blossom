@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class TraversalDoor : MonoBehaviour
 {
-    public string scene;
+    public string scene; // string name of the scene
+    public float range = 3; // distance from object center to player
     public PlayerMovement player;
 
     void Update(){
         Vector3 playerPosition = player.transform.position;
-        if (Vector3.Distance(playerPosition, transform.position) < 5 && Input.GetKeyDown(KeyCode.E)){
+        if (Vector3.Distance(playerPosition, transform.position) < range && Input.GetKeyDown(KeyCode.E)){
             Interacted();
-            Debug.Log("hellooo");
         }
     }
     void Interacted(){
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene); // change the current scene
     }
 }
