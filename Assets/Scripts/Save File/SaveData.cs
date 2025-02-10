@@ -35,10 +35,10 @@ public class SaveData
 
         // load dictionaries
         storedFlowers = new Dictionary<string, int> {
-            {"Roses", 0}, {"Daisy", 0}
+            {"Rose", 0}, {"Daisy", 0}, {"Tulip", 0}, {"Peony", 0}, {"Sweet Pea", 0}, {"Orchid", 0}, {"Nightshade", 0}, {"Foxglove", 0}, {"Lily of the Valley", 0}
         };
         storedGeodes = new Dictionary<string, int> {
-            {"Amythest", 0}, {"Bismuth", 0}
+            {"Amythest", 0}, {"Iron", 0}, {"Quartz", 0}, {"Citrine", 0}, {"Manganese", 0}, {"Serpentine", 0}, {"Azurite", 0}, {"Bismuth", 0}, {"Gold", 0},
         };
 
         // load combinations
