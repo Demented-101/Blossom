@@ -15,7 +15,8 @@ public static class SaveManager
         string path = Application.persistentDataPath + fileName; // get the file path
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        SaveData data = new SaveData(); // create save data class - formatting handled in constructor
+        SaveData data = new SaveData();
+        data.loadFromPlayer(); // create save data class - formatting handled in constructor
         formatter.Serialize(stream, data); // write to the file
         stream.Close();
     }
@@ -34,9 +35,12 @@ public static class SaveManager
         }
         else
         {
+            SaveData data = new SaveData()
+            data.loadBasics()
             Debug.LogError("no save file found at path!");
+            Debut.LogError("Created new save");
             Debug.LogError(path);
-            return null;
+            return data;
         }
     }
 

@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public static int sceneChanges;
+    //general
     public static int money;
+
+    // inventory
+    public static int petals;
+    public static string[] inventory;
+
+    public static Dictionary<string, int> storedFlowers;
+    public static Dictionary<string, int> storedGeodes;
+    public static bool[,] combinations;
 
     private void Start()
     {
-        sceneChanges += 1;
-
         SaveData data = new SaveData(); // load save data
         money = data.money;
     }
