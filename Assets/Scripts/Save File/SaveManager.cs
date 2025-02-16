@@ -35,10 +35,10 @@ public static class SaveManager
         }
         else
         {
-            SaveData data = new SaveData()
-            data.loadBasics()
+            SaveData data = new SaveData();
+            data.loadBasics();
             Debug.LogError("no save file found at path!");
-            Debut.LogError("Created new save");
+            Debug.LogError("Created new save");
             Debug.LogError(path);
             return data;
         }
