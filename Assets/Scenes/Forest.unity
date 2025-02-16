@@ -2265,6 +2265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1598571371}
+  - component: {fileID: 1598571372}
   m_Layer: 0
   m_Name: Spawner 1
   m_TagString: Untagged
@@ -2281,12 +2282,32 @@ Transform:
   m_GameObject: {fileID: 1598571370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.4, y: 0.34, z: 3.2}
+  m_LocalPosition: {x: 16.3, y: 0.34, z: 6.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598571372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598571370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dae6cb884a40a74d8f6e68a44d6dbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 30
+  flower: {fileID: 919132149155446097, guid: 201af78af3173cb45bf54721a7402da5, type: 3}
+  rangeX: 20
+  rangeZ: 20
+  rangeY: 0
+  offset: {x: 0, y: -0.34, z: 0}
+  scaleMin: 0.2
+  scaleMax: 0.23
 --- !u!43 &1661929063
 Mesh:
   m_ObjectHideFlags: 0
