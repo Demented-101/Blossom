@@ -31,7 +31,7 @@ public class SaveData
         // set basic variables
         money = 0;
         petals = 0;
-        inventory = new string[12]; // 12 is inventory size
+        inventory = new string[12] {"", "", "", "", "", "", "", "", "", "", "", "", }; // 12 is inventory size
 
         // load dictionaries
         storedFlowers = new Dictionary<string, int> {

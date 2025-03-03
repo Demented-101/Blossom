@@ -40,6 +40,7 @@ public static class SaveManager
             Debug.LogError("no save file found at path!");
             Debug.LogError("Created new save");
             Debug.LogError(path);
+            System.IO.Directory.CreateDirectory(Application.persistentDataPath);
             return data;
         }
     }
