@@ -16,6 +16,7 @@ public class TraversalDoor : MonoBehaviour
         }
     }
     void Interacted(){
+        SaveManager.Save(); // saves all data between saves
         SceneManager.LoadScene(scene); // change the current scene
     }
 }
