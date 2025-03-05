@@ -12,15 +12,20 @@ public class PlayerData : MonoBehaviour
     public static int petals;
     public static string[] inventory;
 
-    public static Dictionary<string, int> storedFlowers;
-    public static Dictionary<string, int> storedGeodes;
-    public static bool[,] combinations;
+    public static int[] storedFlowers;
+    public static int[] storedGeodes;
+    public static string[] combinations;
 
     private void Start()
     {
         SaveData data = SaveManager.Load();
         money = data.money;
+        petals = data.petals;
         inventory = data.inventory;
+
+        storedFlowers = data.storedFlowers;
+        storedGeodes = data.storedGeodes;
+        combinations = data.combinations;
     }
 
     public bool AttemptPickup(string itemName)
@@ -30,7 +35,6 @@ public class PlayerData : MonoBehaviour
             string fullname = inventory[i];
             string name = fullname.Split(';')[0];
             
-
             if (name == itemName)
             {
                 int amount = int.Parse(fullname.Split(';')[1]);

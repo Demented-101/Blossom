@@ -1,5 +1,8 @@
+using System;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // this handles saving and loading the data from the binary file itself
@@ -7,18 +10,16 @@ using UnityEngine;
 
 public static class SaveManager 
 {
-    private const string fileName = "/player.demented";
+    private const string fileName = "/player.json";
 
     public static void Save()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + fileName; // get the file path
-        FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveData data = new SaveData();
         data.loadFromPlayer(); // create save data class - formatting handled in constructor
-        formatter.Serialize(stream, data); // write to the file
-        stream.Close();
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(path, json);
     }
 
     public static SaveData Load()
@@ -26,22 +27,27 @@ public static class SaveManager
         string path = Application.persistentDataPath + fileName; // get the file path
         if (File.Exists(path)) // file is there
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            stream.Close();
+            string loadPlayerData = File.ReadAllText(path);
 
-            SaveData data = formatter.Deserialize(stream) as SaveData; // turn the loaded binary into usable data - IE SaveData
+            SaveData data;
+            try { data = JsonUtility.FromJson<SaveData>(path); }
+            catch { data = new SaveData(); data.loadBasics(); Debug.LogError("ERROR - save file was missing or corrupt - all data was lost and the save file was replaced."); }
             return data;
         }
         else
         {
             SaveData data = new SaveData();
-            data.loadBasics();
-            Debug.LogError("no save file found at path!");
-            Debug.LogError("Created new save");
-            Debug.LogError(path);
-            System.IO.Directory.CreateDirectory(Application.persistentDataPath);
-            return data;
+            data.loadBasics(); // load basic data
+            Debug.LogError("no save file found at path - creating new save file at == " + path);
+
+            Directory.CreateDirectory(Application.persistentDataPath); // create file path
+            FileStream stream = new FileStream(path, FileMode.Create); // create file
+            stream.Close();
+
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText(path, json);
+
+            return data; // return basic data
         }
     }
 

@@ -2679,13 +2679,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 30
-  flower: {fileID: 919132149155446097, guid: 201af78af3173cb45bf54721a7402da5, type: 3}
+  flower: {fileID: 3537015570177085164, guid: c48bb3e75226254448d84d31f73fed07, type: 3}
   rangeX: 20
   rangeZ: 20
   rangeY: 0
   offset: {x: 0, y: -0.34, z: 0}
-  scaleMin: 0.25
-  scaleMax: 0.3
+  scaleMin: 0.6
+  scaleMax: 0.8
 --- !u!43 &1661929063
 Mesh:
   m_ObjectHideFlags: 0
@@ -3576,7 +3576,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 225033052}
-  - {fileID: 1994998032}
   - {fileID: 1449497576}
   - {fileID: 1694653406}
   - {fileID: 494158691}
@@ -3585,3 +3584,4 @@ SceneRoots:
   - {fileID: 1947920560}
   - {fileID: 1698569111}
   - {fileID: 1707742289}
+  - {fileID: 1994998032}
