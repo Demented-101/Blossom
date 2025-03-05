@@ -17,21 +17,20 @@ public static class SaveManager
         string path = Application.persistentDataPath + fileName; // get the file path
 
         SaveData data = new SaveData();
-        data.loadFromPlayer(); // create save data class - formatting handled in constructor
+        data.loadFromPlayer(); // create save data class and load players data onto it
         string json = JsonUtility.ToJson(data);
-        File.WriteAllText(path, json);
+        File.WriteAllText(path, json); // save to file
     }
 
     public static SaveData Load()
-    {
+    { 
         string path = Application.persistentDataPath + fileName; // get the file path
         if (File.Exists(path)) // file is there
         {
-            string loadPlayerData = File.ReadAllText(path);
-
-            SaveData data;
-            try { data = JsonUtility.FromJson<SaveData>(path); }
-            catch { data = new SaveData(); data.loadBasics(); Debug.LogError("ERROR - save file was missing or corrupt - all data was lost and the save file was replaced."); }
+            SaveData data = new SaveData();
+            string json = File.ReadAllText(path);
+            Debug.Log(json);
+            JsonUtility.FromJsonOverwrite(json, data);
             return data;
         }
         else
@@ -41,9 +40,6 @@ public static class SaveManager
             Debug.LogError("no save file found at path - creating new save file at == " + path);
 
             Directory.CreateDirectory(Application.persistentDataPath); // create file path
-            FileStream stream = new FileStream(path, FileMode.Create); // create file
-            stream.Close();
-
             string json = JsonUtility.ToJson(data);
             File.WriteAllText(path, json);
 

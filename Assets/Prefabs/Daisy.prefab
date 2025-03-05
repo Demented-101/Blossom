@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 2
-  flowerName: D
+  flowerName: Daisy
 --- !u!1 &6462190882858887059
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ public class PlayerData : MonoBehaviour
         money = data.money;
         petals = data.petals;
         inventory = data.inventory;
+        if (inventory.Length != 12)
 
         storedFlowers = data.storedFlowers;
         storedGeodes = data.storedGeodes;
@@ -30,30 +32,29 @@ public class PlayerData : MonoBehaviour
 
     public bool AttemptPickup(string itemName)
     {
+        if (inventory.Length != 12) { Array.Resize(ref inventory, 12); }
+
         for (int i = 0; i < inventory.Length; i++)
         {
             string fullname = inventory[i];
             string name = fullname.Split(';')[0];
             
-            if (name == itemName)
+            if (name == itemName) // add to existing stack
             {
                 int amount = int.Parse(fullname.Split(';')[1]);
-                inventory[i] = name + (amount + 1).ToString();
-                print(inventory[i]);
+                inventory[i] = name + ";" + (amount + 1).ToString();
+                Debug.Log("Added item to inventory in existing slot: " + fullname + " - " + itemName);
+                return true;
+            } 
+            else if (fullname  == "") // empty slot
+            {
+                inventory[i] = itemName + ";1";
+                Debug.Log("Added item to inventory in new slot - " + itemName);
                 return true;
             }
         }
 
-        if (inventory.Length >= 12)
-        {
-            inventory.Append(itemName + ";1");
-            print(inventory.ToString());
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-        
+        Debug.Log("inventory full - could not add " + itemName);
+        return false;
     }
 }

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 2
-  flowerName: L
+  flowerName: Lily of the Valley
 --- !u!1 &3434809251436384527
 GameObject:
   m_ObjectHideFlags: 0
