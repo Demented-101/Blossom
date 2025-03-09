@@ -13,7 +13,7 @@ public class SaveData
     public int petals;
     public string[] inventory;
     public int[] storedFlowers; // ORDER: Rose, Tulip, Daisy, Peony, Sweet-pea, Orchid, nightshade, foxglove, lily OTV
-    public int[] storedGeodes; // ORDER: Amythest, Quartz, Iron, Citrine, Manganese, Serpentine, Azurine, Bismuth, Gold
+    public int[] storedGeodes; // ORDER: Amythest, Quartz, Iron, Citrine, Manganese, Serpentine, Jade, Azurine, Bismuth, Gold
     public string[] combinations; // ordered by flower. if index one has "Am;Qu;Cit;", then the rose has amythest, quartz and citrine unlocked.
 
     public void loadFromPlayer()

@@ -25,6 +25,7 @@ public class FlowerSpawner : MonoBehaviour
             GameObject newflower = Instantiate(flower);
             newflower.transform.parent = transform;
             newflower.GetComponent<Flower>().doPickup = true;
+
             // position & rotation
             newflower.transform.position = new Vector3(Random.Range(-rangeX, rangeX), Random.Range(-rangeY, rangeY), Random.Range(-rangeZ, rangeZ)) + flower_offset;
             newflower.transform.Rotate(Vector3.up, Random.Range(-180, 180));
