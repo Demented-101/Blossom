@@ -131,6 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Lily of the Valley
+  doPickup: 0
+  flowerObj: {fileID: 3434809251436384527}
+  stemObj: {fileID: 1437325764308654328}
+  flowerMaterial: {fileID: 2100000, guid: b86afab2e1d217b4aad20f6c1df60285, type: 2}
+  stemMaterial: {fileID: 2100000, guid: 5285fba7019b3174d80e01f4e148ed94, type: 2}
 --- !u!1 &3434809251436384527
 GameObject:
   m_ObjectHideFlags: 0

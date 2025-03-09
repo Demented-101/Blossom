@@ -214,3 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Foxglove
+  doPickup: 0
+  flowerObj: {fileID: 501795929143605550}
+  stemObj: {fileID: 731227861532662683}
+  flowerMaterial: {fileID: 2100000, guid: 43190a5b18c9d6e498fd5c39045dddf3, type: 2}
+  stemMaterial: {fileID: 2100000, guid: 944b9a7e543d71f469ca3ac5d2a1e56d, type: 2}

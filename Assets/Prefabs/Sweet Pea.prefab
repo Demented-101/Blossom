@@ -131,6 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Sweetpea
+  doPickup: 0
+  flowerObj: {fileID: 6793684583584361787}
+  stemObj: {fileID: 499873166981125642}
+  flowerMaterial: {fileID: 2100000, guid: 350bc83b824a84c4ea89b98dd55d2921, type: 2}
+  stemMaterial: {fileID: 2100000, guid: f3c7cbebaf9d7224ea9b05dbd8903ed4, type: 2}
 --- !u!1 &6793684583584361787
 GameObject:
   m_ObjectHideFlags: 0

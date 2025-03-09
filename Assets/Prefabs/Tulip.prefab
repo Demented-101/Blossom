@@ -214,3 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Tulip
+  doPickup: 0
+  flowerObj: {fileID: 3296470222076098278}
+  stemObj: {fileID: 4545220952622221725}
+  flowerMaterial: {fileID: 2100000, guid: 91c717f2533e6164f95645910ec60325, type: 2}
+  stemMaterial: {fileID: 2100000, guid: dd41f2ae54144a5488a69fe931ac61c2, type: 2}

@@ -131,6 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Orchid
+  doPickup: 0
+  flowerObj: {fileID: 7033965635616690350}
+  stemObj: {fileID: 9146763160238853487}
+  flowerMaterial: {fileID: 2100000, guid: b109787cd9dddf64a93acff932a5514b, type: 2}
+  stemMaterial: {fileID: 2100000, guid: ee07d94ffd805524d97de8600be3e5ed, type: 2}
 --- !u!1 &9146763160238853487
 GameObject:
   m_ObjectHideFlags: 0

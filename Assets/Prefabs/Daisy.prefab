@@ -48,6 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Daisy
+  doPickup: 0
+  flowerObj: {fileID: 6462190882858887059}
+  stemObj: {fileID: 6787060689190572094}
+  flowerMaterial: {fileID: 2100000, guid: 0390d6d1506c27f47bcf683833bcc2ab, type: 2}
+  stemMaterial: {fileID: 2100000, guid: eb7f4a80744c00a429e958b5a920ebf4, type: 2}
 --- !u!1 &6462190882858887059
 GameObject:
   m_ObjectHideFlags: 0

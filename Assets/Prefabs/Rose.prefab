@@ -131,6 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Rose
+  doPickup: 0
+  flowerObj: {fileID: 6016992580215043408}
+  stemObj: {fileID: 277061281706689195}
+  flowerMaterial: {fileID: 2100000, guid: db0c13fd5ec60054e8c4142aef109b62, type: 2}
+  stemMaterial: {fileID: 2100000, guid: 7ff2d420aed4aa3439f68ca0bfc82ee4, type: 2}
 --- !u!1 &6016992580215043408
 GameObject:
   m_ObjectHideFlags: 0

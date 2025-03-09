@@ -214,3 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 2
   flowerName: Nightshade
+  doPickup: 0
+  flowerObj: {fileID: 276726929682006702}
+  stemObj: {fileID: 1259765178060340693}
+  flowerMaterial: {fileID: 2100000, guid: 2e5377a32adb20e4b809f2ac5e80e0b0, type: 2}
+  stemMaterial: {fileID: 2100000, guid: 26b37ede7c47e8542b332d70deec97ce, type: 2}
