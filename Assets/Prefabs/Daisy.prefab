@@ -49,6 +49,7 @@ MonoBehaviour:
   pickupDistance: 2
   flowerName: Daisy
   doPickup: 0
+  interactNotifPrefab: {fileID: 7696445876744681558, guid: c867661768d019c4caadc230d6b21436, type: 3}
   flowerObj: {fileID: 6462190882858887059}
   stemObj: {fileID: 6787060689190572094}
   flowerMaterial: {fileID: 2100000, guid: 0390d6d1506c27f47bcf683833bcc2ab, type: 2}

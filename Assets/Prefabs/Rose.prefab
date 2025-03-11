@@ -132,6 +132,7 @@ MonoBehaviour:
   pickupDistance: 2
   flowerName: Rose
   doPickup: 0
+  interactNotifPrefab: {fileID: 7696445876744681558, guid: c867661768d019c4caadc230d6b21436, type: 3}
   flowerObj: {fileID: 6016992580215043408}
   stemObj: {fileID: 277061281706689195}
   flowerMaterial: {fileID: 2100000, guid: db0c13fd5ec60054e8c4142aef109b62, type: 2}

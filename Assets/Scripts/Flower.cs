@@ -8,6 +8,7 @@ public class Flower : MonoBehaviour
     public float pickupDistance = 2f;
     public string flowerName = "N/a";
     public bool doPickup = false;
+    public GameObject interactNotifPrefab = null;
 
     [Header("parts")]
     [SerializeField] private GameObject flowerObj;
@@ -16,6 +17,18 @@ public class Flower : MonoBehaviour
     [Header("Materials")]
     [SerializeField] private Material flowerMaterial;
     [SerializeField] private Material stemMaterial;
+
+    private void Start()
+    {
+        if (doPickup) {
+            GameObject interactNotif = Instantiate(interactNotifPrefab, transform) as GameObject;
+            interactNotif.transform.localScale = (new Vector3(1,1,1) - transform.localScale) * 5;
+            interactNotif.GetComponent<InteractionNotification>().displayText = "Pick Flower";
+            interactNotif.GetComponent<InteractionNotification>().textSize = 5;
+            interactNotif.GetComponent<InteractionNotification>().range = pickupDistance; 
+        }
+        
+    }
 
     void Update()
     {
