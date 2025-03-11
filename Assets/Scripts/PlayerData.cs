@@ -17,6 +17,14 @@ public class PlayerData : MonoBehaviour
     public static int[] storedGeodes;
     public static string[] combinations;
 
+    //constants
+    private List<string> flowerNames = new List<string> {
+        "Rose", "Tulip", "Daisy", "Sweetpea", "Orchid", "Nightshade", "Foxglove", "Lily of the Valley"
+    };
+    private List<string> geodeNames = new List<string> {
+        "Amythest", "Quartz", "Iron", "Citrine", "Manganese", "Serpentine", "Jade", "Bismuth", "Gold"
+    };
+
     private void Start()
     {
         SaveData data = SaveManager.Load();
@@ -57,4 +65,38 @@ public class PlayerData : MonoBehaviour
         Debug.Log("inventory full - could not add " + itemName);
         return false;
     }
+
+    public void DepositInventory()
+    {
+        for(int i = 0; i < inventory.Length; i++)
+        {
+            string item = inventory[i];
+            findName = item;
+            int flowerIndex = flowerNames.FindIndex(isName);
+            bool storedItem = false;
+
+            if(flowerIndex != -1)
+            {
+                if (storedFlowers.Length != 8) { Array.Resize(ref storedFlowers, 8); }
+                storedFlowers[flowerIndex] += 1;
+                storedItem = true;
+            }
+
+            int geodeIndex = geodeNames.FindIndex(isName);
+            if (geodeIndex != -1)
+            {
+                if (storedGeodes.Length != 9) { Array.Resize(ref storedGeodes, 9); }
+                storedGeodes[geodeIndex] += 1;
+                storedItem = true;
+            }
+
+            if (storedItem)
+            {
+                inventory[0] = "";
+            }
+        }
+    }
+
+    private string findName;
+    private bool isName(string name) { return (name == findName); }
 }

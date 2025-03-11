@@ -12,7 +12,7 @@ public class SaveData
     public int money;
     public int petals;
     public string[] inventory;
-    public int[] storedFlowers; // ORDER: Rose, Tulip, Daisy, Peony, Sweet-pea, Orchid, nightshade, foxglove, lily OTV
+    public int[] storedFlowers; // ORDER: Rose, Tulip, Daisy, Peony, Sweet-pea, nightshade, foxglove, lily OTV
     public int[] storedGeodes; // ORDER: Amythest, Quartz, Iron, Citrine, Manganese, Serpentine, Jade, Azurine, Bismuth, Gold
     public string[] combinations; // ordered by flower. if index one has "Am;Qu;Cit;", then the rose has amythest, quartz and citrine unlocked.
 
@@ -35,10 +35,10 @@ public class SaveData
         inventory = new string[12]; // 12 is inventory size
 
         // load dictionaries
-        storedFlowers = new int[9];
+        storedFlowers = new int[8];
         storedGeodes = new int[9];
 
         // load combinations
-        combinations = new string[9];
+        combinations = new string[8];
     }
 }
