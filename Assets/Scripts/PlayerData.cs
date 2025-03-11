@@ -23,7 +23,6 @@ public class PlayerData : MonoBehaviour
         money = data.money;
         petals = data.petals;
         inventory = data.inventory;
-        if (inventory.Length != 12)
 
         storedFlowers = data.storedFlowers;
         storedGeodes = data.storedGeodes;

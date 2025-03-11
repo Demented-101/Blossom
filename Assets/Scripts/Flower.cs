@@ -29,4 +29,17 @@ public class Flower : MonoBehaviour
             }
         }
     }
+
+    public void ResetMaterial()
+    {
+        flowerObj.GetComponent<MeshRenderer>().material = flowerMaterial;
+        stemObj.GetComponent<MeshRenderer>().material = stemMaterial;
+    }
+
+    public void SetMaterial(Material material, bool includeStem)
+    {
+        flowerObj.GetComponent<MeshRenderer>().material = material;
+        if (includeStem) { stemObj.GetComponent <MeshRenderer>().material = material; }
+        else { stemObj.GetComponent<MeshRenderer>().material = stemMaterial; }
+    }
 }
