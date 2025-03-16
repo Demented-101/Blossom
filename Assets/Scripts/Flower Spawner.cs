@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using TMPro;
 
 public class FlowerSpawner : MonoBehaviour
 {
     [SerializeField] private int count;
     [SerializeField] private GameObject flower;
+    [SerializeField] private GameObject interactLabelPrefab;
 
     [Header("Position")]
     [SerializeField] private float rangeX;
@@ -33,6 +35,9 @@ public class FlowerSpawner : MonoBehaviour
             // scale 
             float flowerScale = Random.Range(scaleMin, scaleMax);
             newflower.transform.localScale = new Vector3(flowerScale, flowerScale, flowerScale);
+
+            // interact Label
+            newflower.GetComponent<Flower>().SetupInteractionLabel(interactLabelPrefab);
         }
     }
 

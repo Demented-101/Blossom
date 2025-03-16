@@ -30,6 +30,16 @@ public class Flower : MonoBehaviour
         }
     }
 
+    public void SetupInteractionLabel(GameObject prefab){
+        GameObject label = Instantiate(prefab, transform);
+
+        InteractLabel interactLabel = label.GetComponent<InteractLabel>();
+        interactLabel.text = "Pick " + flowerName;
+        interactLabel.size = 3;
+        interactLabel.distance = pickupDistance;
+        interactLabel.UpdateText();
+    }
+
     public void ResetMaterial()
     {
         flowerObj.GetComponent<MeshRenderer>().material = flowerMaterial;
