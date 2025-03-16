@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+
+    private static bool loaded;
     //general
     public static int money;
 
@@ -19,15 +21,17 @@ public class PlayerData : MonoBehaviour
 
     private void Start()
     {
+        if (loaded) {return;}
         SaveData data = SaveManager.Load();
         money = data.money;
         petals = data.petals;
         inventory = data.inventory;
-        if (inventory.Length != 12)
 
         storedFlowers = data.storedFlowers;
         storedGeodes = data.storedGeodes;
         combinations = data.combinations;
+
+        loaded = true;
     }
 
     public bool AttemptPickup(string itemName)

@@ -2,71 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public TextMeshProUGUI blossomText; 
-    public TextMeshProUGUI instructionsLabel;
-    public TextMeshProUGUI instructionsParagraph; 
-    public GameObject backButton; 
-    public GameObject settingsButton; 
-    public GameObject playButton; 
-    public GameObject rulesButton; 
-
     public void PlayGame()
     {
-        SceneManager.LoadScene("Garden");  
-    }
-
-    public void HideBlossomText()
-    {
-        blossomText.enabled = false;
-    }
-
-    public void ShowBlossomText()
-    {
-        blossomText.enabled = true;
-    }
-
-    public void SettingsPlayRulesDisable()
-    {
-        settingsButton.SetActive(false); 
-        playButton.SetActive(false); 
-        rulesButton.SetActive(false); 
-        backButton.SetActive(false); 
+        if(PlayerPrefs.GetInt("loadSaved") == 1)
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt("LastScene"));
+        }
+        else
+        {
+            SceneManager.LoadScene("Garden");
+        }
 
     }
-
-    public void SettingsPlayRulesEnable()
+    public void MainScene()
     {
-        settingsButton.SetActive(true); 
-        playButton.SetActive(true); 
-        rulesButton.SetActive(true); 
-        backButton.SetActive(false); 
-
+        Time.timeScale = 1f;
+        PlayerPrefs.SetInt("loadSaved", 1);
+        PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("UI");
     }
 
-    public void EnableBackButton()
+    public void QuitGame()
     {
-        backButton.SetActive(true); 
-    }
-
-    public void HideBackButton()
-    {
-        backButton.SetActive(false); 
-    }
-
-    public void HideInstructions()
-    {
-        instructionsLabel.enabled = false;
-        instructionsParagraph.enabled = false; 
-    }
-
-    public void ShowInstructions()
-    {
-        instructionsLabel.enabled = true;
-        instructionsParagraph.enabled = true; 
+        Application.Quit();
     }
 }
