@@ -24,6 +24,7 @@ public class SaveFileTool : EditorWindow
         itemName = EditorGUILayout.TextField(itemName);
         itemCount = EditorGUILayout.IntField(itemCount);
         if (GUILayout.Button("Add Item to Inventory")) { AddItemInventory(); }
+        if (GUILayout.Button("Print Inventory")) { PrintInventory(); }
 
     }
 
@@ -65,9 +66,7 @@ public class SaveFileTool : EditorWindow
         string path = Application.persistentDataPath + "/player.json"; // get the file path
         SaveData data = LoadData(path);
 
-        if (data.inventory.Length != 12) { Array.Resize(ref data.inventory, 12); }
-
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < data.inventory.Length; i++)
         {
             string fullname = data.inventory[i];
             string name = fullname.Split(';')[0];
@@ -90,8 +89,29 @@ public class SaveFileTool : EditorWindow
                 return;
             }
         }
-        Debug.Log("inventory full - cannot remove");
+        if (data.inventory.Length < 12)
+        {
+            int size = data.inventory.Length + 1;
+            Array.Resize(ref data.inventory, size);
+            data.inventory[size - 1] = itemName + ";" + itemCount.ToString();
+            Debug.Log("added item to inventory in new resize slot - " + itemName);
 
+            SaveJson(data, path);
+            return;
+        }
+
+        Debug.Log("inventory full - cannot add");
+
+    }
+
+    private void PrintInventory()
+    {
+        string path = Application.persistentDataPath + "/player.json"; // get the file path
+        SaveData data = LoadData(path);
+
+        foreach (string i in data.inventory){
+            Debug.Log(i);
+        }
     }
 }
 

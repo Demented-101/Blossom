@@ -12,24 +12,14 @@ public class PlayerData : MonoBehaviour
     public static int money;
 
     // inventory
-    public static int petals;
     public static string[] inventory;
-
-    public static int[] storedFlowers;
-    public static int[] storedGeodes;
-    public static string[] combinations;
 
     private void Start()
     {
         if (loaded) {return;}
         SaveData data = SaveManager.Load();
         money = data.money;
-        petals = data.petals;
         inventory = data.inventory;
-
-        storedFlowers = data.storedFlowers;
-        storedGeodes = data.storedGeodes;
-        combinations = data.combinations;
 
         loaded = true;
     }
@@ -65,5 +55,35 @@ public class PlayerData : MonoBehaviour
 
         Debug.Log("inventory full - could not add " + itemName);
         return false;
+    }
+
+    public void RemoveItem(string itemName, int amount)
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            string fullname = inventory[i];
+
+            if (fullname.Contains(";") && fullname.Split(";")[0] == itemName)
+            {
+                string name = fullname.Split(';')[0];
+                int oldAmount = int.Parse(fullname.Split(";")[1]);
+
+                inventory[i] = name + ";" + (oldAmount - amount).ToString();
+                return;
+            }
+        }
+    }
+
+    public int GetItemAmount(string itemName)
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i].Contains(itemName))
+            {
+                Debug.Log(inventory[i].Split(";")[1]);
+                return int.Parse(inventory[i].Split(";")[1]);
+            }
+        }
+        return 0;
     }
 }
