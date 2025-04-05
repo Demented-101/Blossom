@@ -3049,6 +3049,10 @@ PrefabInstance:
       value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 4271267990699310989, guid: de5bf648a50643240a930321d38342c7, type: 3}
+      propertyPath: size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271267990699310989, guid: de5bf648a50643240a930321d38342c7, type: 3}
       propertyPath: text
       value: Return to Garden
       objectReference: {fileID: 0}
