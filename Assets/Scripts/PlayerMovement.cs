@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 moveForward; // the forward and right axis of the camera
     private Vector3 moveRight; // used to orient the players movement with the camera
+    public bool run = true;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() //code for WASD and space key movement
     {
+        if (!run) { return; }
         float moveHorizontal = Input.GetAxis("Horizontal"); 
         float moveVertical = Input.GetAxis("Vertical");
 

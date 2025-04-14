@@ -12,7 +12,7 @@ public class SaveData
     public int money;
     public string[] inventory;
     // ORDER: Rose, Tulip, Daisy, Sweet-pea, Orchid, nightshade, foxglove, lily OTV
-    // ORDER: Amythest, Quartz, Iron, Citrine, Manganese, Serpentine, Jade, Azurine, Obsidian, Bismuth, Gold
+    // ORDER: Amythest, Quartz, Iron,, Citrine, Manganese, Serpentine, Jade,, Azurine, Obsidian, Bismuth, Gold
 
     public void loadFromPlayer()
     {
