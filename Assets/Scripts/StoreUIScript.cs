@@ -112,8 +112,9 @@ public class StoreUIScript : MonoBehaviour
             case 0: return "Null";
             case 1: return "Amythest";
             case 2: return "Quartz";
-            case 3: return "Citrine";
-            case 4: return "Manganese";
+            case 3: return "Iron";
+            case 4: return "Citrine";
+            case 5: return "Manganese";
             case 6: return "Serpentine";
             case 7: return "Jade";
             case 8: return "Asurine";

@@ -28,7 +28,7 @@ public class GeodeSpawner : MonoBehaviour
             GameObject newGeode = Instantiate(geode);
             newGeode.transform.parent = transform;
             newGeode.GetComponent<Geode>().SetGeodeMaterial(geodeMaterial);
-            newGeode.GetComponent<Geode>().name = geodeName;
+            newGeode.GetComponent<Geode>().geodeName = geodeName;
 
             // position & rotation
             newGeode.transform.position = new Vector3(Random.Range(-rangeX, rangeX), Random.Range(-rangeY, rangeY), Random.Range(-rangeZ, rangeZ)) + geode_offset;

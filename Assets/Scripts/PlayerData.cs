@@ -69,6 +69,11 @@ public class PlayerData : MonoBehaviour
                 int oldAmount = int.Parse(fullname.Split(";")[1]);
 
                 inventory[i] = name + ";" + (oldAmount - amount).ToString();
+
+                if (oldAmount - amount <= 0)
+                {
+                    inventory[i] = ""; // remove item from inventory when none left
+                }
                 return;
             }
         }
