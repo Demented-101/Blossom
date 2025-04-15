@@ -723,6 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6712998030305294340}
   - component: {fileID: 3053099808739775237}
+  - component: {fileID: 7413602584502514098}
   m_Layer: 0
   m_Name: Geode
   m_TagString: Untagged
@@ -771,4 +772,25 @@ MonoBehaviour:
   - {fileID: 8850723560032445281}
   - {fileID: 720433323685659345}
   - {fileID: 8255911401212172401}
-  TEST: {fileID: 2100000, guid: 7d094d562d3155b4095e2621eb2c7fde, type: 2}
+  geodeName: 
+--- !u!135 &7413602584502514098
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184499336324715044}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Geode : MonoBehaviour
 {
     [SerializeField] private GameObject[] crystals;
-    public string name;
+    public string geodeName;
 
     public void SetGeodeMaterial(Material material)
     {

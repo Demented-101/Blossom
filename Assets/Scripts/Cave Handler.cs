@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class CaveHandler : MonoBehaviour
@@ -40,5 +41,12 @@ public class CaveHandler : MonoBehaviour
         {
             obj.GetComponent<GeodeSpawner>().Run();
         }
+    }
+
+    public void End()
+    {
+        caveCamera.SetActive(false);
+        player.GetComponent<PlayerMovement>().cam.gameObject.SetActive(true);
+        player.GetComponent<PlayerMovement>().run = true;
     }
 }
