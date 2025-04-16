@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4515908529072240842}
   m_Layer: 0
   m_Name: Orchid
-  m_TagString: Untagged
+  m_TagString: Orchid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

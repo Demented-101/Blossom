@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 2623603469979656508}
   m_Layer: 0
   m_Name: Foxglove
-  m_TagString: Untagged
+  m_TagString: Foxglove
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
