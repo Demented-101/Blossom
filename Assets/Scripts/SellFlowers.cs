@@ -11,6 +11,9 @@ public class SellFlowers : MonoBehaviour
 
     public Sprite menuSprite;  
     public Sprite crossSprite; 
+
+
+    public static bool isSellButtonPressed; 
     
 
     public GameObject theBackground; 
@@ -35,6 +38,7 @@ public class SellFlowers : MonoBehaviour
     {
         buttonImage = toggleButton.GetComponent<Image>();
         toggleButton.onClick.AddListener(ToggleMenu);
+        isSellButtonPressed = false; 
         FlowerCounter(); 
         UpdateUI();
     }
@@ -170,7 +174,8 @@ public class SellFlowers : MonoBehaviour
         roseSold.text = "Roses: " + roseRandomNumber;
         nightshadeSold.text = "Nightshades: " + nightshadeRandomNumber;
 
-        sellButton.enabled = false; 
+        sellButton.gameObject.SetActive(false); 
+        isSellButtonPressed = true; 
         noteText.enabled = false; 
         int flowerTotal = (lilyRandomNumber + daisyRandomNumber + foxgloveRandomNumber + orchidRandomNumber + sweetpeaRandomNumber
                         + tulipRandomNumber + roseRandomNumber + nightshadeRandomNumber); 
