@@ -20,8 +20,6 @@ public class PlayerData : MonoBehaviour
         SaveData data = SaveManager.Load();
         money = data.money;
         inventory = data.inventory;
-
-        loaded = true;
     }
 
     public bool AttemptPickup(string itemName)
@@ -36,12 +34,14 @@ public class PlayerData : MonoBehaviour
                 int amount = int.Parse(fullname.Split(';')[1]);
                 inventory[i] = name + ";" + (amount + 1).ToString();
                 Debug.Log("Added item to inventory in existing slot: " + fullname + " - " + itemName);
+                SaveManager.Save(); //save to inventory after pickup 
                 return true;
             } 
-            else if (fullname  == "") // empty slot
+            else if (fullname == "") // empty slot
             {
                 inventory[i] = itemName + ";1";
                 Debug.Log("Added item to inventory in new slot - " + itemName);
+                SaveManager.Save(); //save to inventory after pickup 
                 return true;
             }
         }
@@ -51,6 +51,8 @@ public class PlayerData : MonoBehaviour
             Array.Resize(ref inventory, size);
             inventory[size - 1] = itemName + ";1";
             Debug.Log("added item to inventory in new resize slot - " + itemName);
+            SaveManager.Save(); //save to inventory after pickup 
+            return true;
         }
 
         Debug.Log("inventory full - could not add " + itemName);
