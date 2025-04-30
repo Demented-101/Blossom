@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class CaveHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject caveCamera;
-    [SerializeField] private GameObject[] geodeSpawners;
-    [SerializeField] private GameObject crane;
-    [SerializeField] private GameObject interactPoint;
-    [SerializeField] private float interactRange;
+    [SerializeField] private GameObject player; // the player in the current scene
+    [SerializeField] private GameObject caveCamera; // the caves camera
+    [SerializeField] private GameObject[] geodeSpawners; // the geode spawners in the cave
+    [SerializeField] private GameObject crane; // the crane object
+    [SerializeField] private GameObject interactPoint; // the interaction point object
+    [SerializeField] private float interactRange; // the range that the player can interact with the interact point object
 
     private bool used;
 
     private void Start()
     {
-        caveCamera.SetActive(false);
+        caveCamera.SetActive(false); // do not overwrite player cam
     }
 
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.E) && Vector3.Distance(player.transform.position, interactPoint.transform.position) < interactRange && !used)
-        {
+        { // E is pressed, player is close enough, and the cave hasnt been used
             Run();
         }
     }
