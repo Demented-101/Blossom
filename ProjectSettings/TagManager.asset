@@ -13,6 +13,10 @@ TagManager:
   - Orchid
   - Sweetpea
   - Tulip
+  - Ladder
+  - Boulder
+  - Platform
+  - InteractLabel
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,18 @@ public class InteractLabel : MonoBehaviour
     public void UpdateText() {
         TextMeshPro tmp = transform.GetChild(0).GetComponent<TextMeshPro>();
         tmp.text = text;
-        tmp.fontSize = size;
+
+        if(tmp.gameObject.tag == "InteractLabel")
+        {
+            tmp.fontSize = 8; 
+        }
+
+        else
+        {
+            tmp.fontSize = size;
+        }
+
+        
     }
     private void Update() {
         GameObject player = GameObject.Find("Player");
