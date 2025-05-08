@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class DaisyScript : MonoBehaviour
 {
@@ -10,9 +12,18 @@ public class DaisyScript : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveDir;
 
+    string currentSceneName; 
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();        
+
+        if(currentSceneName == "Forest")
+        {
+            GameObject constraintObject = GameObject.Find("Daisy");
+            constraintObject.GetComponent<RotationConstraint>().constraintActive = false;
+
+        }
     }
 
     void Update()

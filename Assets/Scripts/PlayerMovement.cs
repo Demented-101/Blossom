@@ -1,49 +1,83 @@
-using System.Collections; 
-using System.Collections.Generic; 
-using UnityEngine; 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody rb; // players rigidbody component
-    public Camera cam; // player camera
+    private Rigidbody rb; // Player's Rigidbody component
+    public Camera cam;    // Player's Camera
 
-    public float speed; // players speed
-    public float jumpAmount; // jump height
+    public Transform modelTransform;
 
-    private Vector3 moveForward; // the forward and right axis of the camera
-    private Vector3 moveRight; // used to orient the players movement with the camera
+    public float speed;       // Player's movement speed
+    public float jumpAmount;  // Jump height
+
+    private Vector3 moveForward; // Forward axis of the camera
+    private Vector3 moveRight;   // Right axis of the camera
+
     public bool run = true;
+
+    public Animator anim;
+    private Vector3 moveDir;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         updateDirections();
+
+        if (anim == null)
+        {
+            Debug.LogError("Animator not found on the character.");
+        }
     }
 
-    void FixedUpdate() //code for WASD and space key movement
+    void Update()
     {
-        if (!run) { return; }
-        float moveHorizontal = Input.GetAxis("Horizontal"); 
+        float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 moveDirection = (moveRight * moveHorizontal) + (moveForward * moveVertical);
+        moveDir = (moveRight * moveHorizontal) + (moveForward * moveVertical);
+        moveDir = moveDir.normalized;
 
-        rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime); 
-        if(Input.GetKey(KeyCode.Space) && isGrounded()) // check player can jump/stop flying
-        {
-            rb.AddForce(UnityEngine.Vector3.up * jumpAmount, ForceMode.Impulse);
-        }
-
+        anim.SetFloat("Speed", moveDir.magnitude);
     }
 
-    public bool isGrounded()  {return Physics.Raycast(transform.position, -Vector3.up, 1.1f); }
+
+    void FixedUpdate()
+    {
+        if (!run) return;
+
+        // Move player
+        Vector3 move = moveDir * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + move);
+
+        // Rotate player toward movement direction
+        if (moveDir != Vector3.zero)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(moveDir);
+            modelTransform.rotation = Quaternion.Slerp(modelTransform.rotation, targetRot, 10f * Time.fixedDeltaTime);
+        }
+
+        // Jump
+        if (Input.GetKey(KeyCode.Space) && isGrounded())
+        {
+            rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+        }
+    }
+
+    public bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, 1.1f);
+    }
 
     public void updateDirections()
     {
         moveForward = cam.transform.forward;
-        moveForward.y = 0; // remove the y component to make sure player doent move down
+        moveForward.y = 0;
+        moveForward.Normalize();
 
         moveRight = cam.transform.right;
         moveRight.y = 0;
+        moveRight.Normalize();
     }
 }
