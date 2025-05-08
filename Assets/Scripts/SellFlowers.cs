@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,14 +32,17 @@ public class SellFlowers : MonoBehaviour
     public TMP_Text numberSold; 
     public TMP_Text profitText; 
     public TMP_Text tulipStock, foxgloveStock, nightshadeStock, roseStock, daisyStock, lotvStock, orchidStock, sweetpeaStock; 
-    public TMP_Text tulipSold, foxgloveSold, nightshadeSold, roseSold, daisySold, lotvSold, orchidSold, sweetpeaSold; 
+    public TMP_Text tulipSold, foxgloveSold, nightshadeSold, roseSold, daisySold, lotvSold, orchidSold, sweetpeaSold;
 
+    public SaveData saveData;
+    public int profit;
 
     void Start()
     {
         buttonImage = toggleButton.GetComponent<Image>();
         toggleButton.onClick.AddListener(ToggleMenu);
-        isSellButtonPressed = false; 
+        isSellButtonPressed = false;
+        profit = saveData.money;
         FlowerCounter(); 
         UpdateUI();
     }
@@ -173,6 +177,7 @@ public class SellFlowers : MonoBehaviour
         tulipSold.text = "Tulips: " + tulipRandomNumber;
         roseSold.text = "Roses: " + roseRandomNumber;
         nightshadeSold.text = "Nightshades: " + nightshadeRandomNumber;
+        profitText.text = "Profit: " + saveData.money;
 
         sellButton.gameObject.SetActive(false); 
         isSellButtonPressed = true; 
@@ -229,7 +234,11 @@ public class SellFlowers : MonoBehaviour
             nightshade[i].SetActive(false); 
         }
 
-        profitText.text = "PROFIT: " + flowerTotal.ToString() + " X " + " £3 " + " = " + "£" + (flowerTotal * 3).ToString(); 
+       
+        profit = profit + flowerTotal * 3;
+        saveData.money = profit; //update balance
+        Debug.Log("Sold! New balance " + saveData.money);
 
+        
     }
 }

@@ -4309,8 +4309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1191462083650218418}
-  speed: 3
+  speed: 4
   jumpAmount: 2
+  run: 1
 --- !u!114 &45571919702596225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,8 +4560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 967572534597487352}
-  allowRotation: 1
-  startRotation: -45
+  allowRotation: 0
+  startRotation: -90
 --- !u!1 &6030034776044385666
 GameObject:
   m_ObjectHideFlags: 0

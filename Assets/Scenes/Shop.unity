@@ -509,6 +509,10 @@ MonoBehaviour:
   lotvSold: {fileID: 951214134}
   orchidSold: {fileID: 856385184}
   sweetpeaSold: {fileID: 953366222}
+  saveData:
+    money: 0
+    inventory: []
+  profit: 0
 --- !u!4 &26287188
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,6 +2108,8 @@ GameObject:
   m_Component:
   - component: {fileID: 150827578}
   - component: {fileID: 150827579}
+  - component: {fileID: 150827580}
+  - component: {fileID: 150827581}
   m_Layer: 0
   m_Name: profit
   m_TagString: Untagged
@@ -2179,6 +2185,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &150827580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150827577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f441d8e7390dc09438d7110fd4c18b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profitText: {fileID: 1024618109}
+--- !u!114 &150827581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150827577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f441d8e7390dc09438d7110fd4c18b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profitText: {fileID: 2120055754}
 --- !u!1 &151300490
 GameObject:
   m_ObjectHideFlags: 0
@@ -13930,7 +13962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Profit - 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 587505e2b4dad5c4b8497412401e104c, type: 2}
   m_sharedMaterial: {fileID: -6792919207933313222, guid: 587505e2b4dad5c4b8497412401e104c, type: 2}
@@ -20203,7 +20235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 518b206f03ffbfe41b9f129efe05b2e0, type: 2}
+  - {fileID: 2100000, guid: 5e80693d064f9e04a85f81f2c3321c25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
