@@ -33,14 +33,14 @@ public class PlayerData : MonoBehaviour
                 string name = fullname.Split(';')[0];
                 int amount = int.Parse(fullname.Split(';')[1]);
                 inventory[i] = name + ";" + (amount + 1).ToString();
-                Debug.Log("Added item to inventory in existing slot: " + fullname + " - " + itemName);
+                //Debug.Log("Added item to inventory in existing slot: " + fullname + " - " + itemName);
                 SaveManager.Save(); //save to inventory after pickup 
                 return true;
             } 
             else if (fullname == "") // empty slot
             {
                 inventory[i] = itemName + ";1";
-                Debug.Log("Added item to inventory in new slot - " + itemName);
+               // Debug.Log("Added item to inventory in new slot - " + itemName);
                 SaveManager.Save(); //save to inventory after pickup 
                 return true;
             }
@@ -50,12 +50,12 @@ public class PlayerData : MonoBehaviour
             int size = inventory.Length + 1;
             Array.Resize(ref inventory, size);
             inventory[size - 1] = itemName + ";1";
-            Debug.Log("added item to inventory in new resize slot - " + itemName);
+            //Debug.Log("added item to inventory in new resize slot - " + itemName);
             SaveManager.Save(); //save to inventory after pickup 
             return true;
         }
 
-        Debug.Log("inventory full - could not add " + itemName);
+        //Debug.Log("inventory full - could not add " + itemName);
         return false;
     }
 
@@ -87,7 +87,7 @@ public class PlayerData : MonoBehaviour
         {
             if (inventory[i].Contains(itemName))
             {
-                Debug.Log(inventory[i].Split(";")[1]);
+               // Debug.Log(inventory[i].Split(";")[1]);
                 return int.Parse(inventory[i].Split(";")[1]);
             }
         }

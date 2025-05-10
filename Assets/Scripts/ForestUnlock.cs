@@ -4,72 +4,67 @@ using UnityEngine;
 
 public class ForestUnlock : MonoBehaviour
 {
-    [HideInInspector]
-    public GameObject[] Area1, Area2, Area3, Area4, Area5;
-    private int[] profitThresholds = { 100, 300, 500, 700, 1000 };
-    private int currentProfit;
+    public GameObject[] areaToUnlock; // This trigger's specific area
+    public int profitThreshold;        // Profit needed to unlock this area
+    public int currentProfit;
+
+    public float range = 3;
+    public PlayerMovement player;
+    public bool run = true;
+
+    public bool isUnlocked = false;    // Track this area's unlock status
 
     SaveData saveData;
 
     void Start()
     {
-        Area1 = new GameObject[0];
-        Area2 = new GameObject[1];
-        Area3 = new GameObject[2];
-        Area4 = new GameObject[3];
-        Area5 = new GameObject[4];
-
-        currentProfit = saveData.money;
-
-        LockAllAreas();
+        LockArea();
     }
 
-    void Unlock()
+    void Update()
     {
-        if (currentProfit >= profitThresholds[0])
+        if (!run) return;
+
+        Vector3 playerPosition = player.transform.position;
+        if (Vector3.Distance(playerPosition, transform.position) < range && Input.GetKeyDown(KeyCode.E))
         {
-            UnlockArea(Area1);
-        }
-        if (currentProfit >= profitThresholds[1])
-        {
-            UnlockArea(Area2);
-        }
-        if (currentProfit >= profitThresholds[2])
-        {
-            UnlockArea(Area3);
-        }
-        if (currentProfit >= profitThresholds[3])
-        {
-            UnlockArea(Area4);
-        }
-        if (currentProfit >= profitThresholds[4])
-        {
-            UnlockArea(Area5);
+            Interacted();
         }
     }
 
-
-    void UnlockArea(GameObject[] area)
+    public void Interacted()
     {
-        foreach (GameObject obj in area)
+        
+
+        if (!isUnlocked && currentProfit >= profitThreshold)
+        {
+            UnlockArea();
+            isUnlocked = true;
+            Debug.Log("Unlocked area at trigger: " + gameObject.name);
+        }
+        else if (isUnlocked)
+        {
+            Debug.Log("Area already unlocked.");
+        }
+        else
+        {
+            Debug.Log("Not enough profit to unlock this area.");
+        }
+    }
+
+    void UnlockArea()
+    {
+        foreach (GameObject obj in areaToUnlock)
         {
             obj.SetActive(false);
         }
     }
 
-    void LockAllAreas()
+    void LockArea()
     {
-        foreach (GameObject obj in Area1) obj.SetActive(true);
-        foreach (GameObject obj in Area2) obj.SetActive(true);
-        foreach (GameObject obj in Area3) obj.SetActive(true);
-        foreach (GameObject obj in Area4) obj.SetActive(true);
-        foreach (GameObject obj in Area5) obj.SetActive(true);
-    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Unlock();
+        foreach (GameObject obj in areaToUnlock)
+        {
+            obj.SetActive(true);
+        }
     }
 }
