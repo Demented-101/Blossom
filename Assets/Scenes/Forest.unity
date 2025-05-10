@@ -9381,6 +9381,10 @@ PrefabInstance:
       value: 0.76455146
       objectReference: {fileID: 0}
     - target: {fileID: 6666731975739301868, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: allowRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666731975739301868, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: startRotation
       value: 0
       objectReference: {fileID: 0}
