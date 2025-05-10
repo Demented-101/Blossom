@@ -39,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Debug.Log($"Input - H: {moveHorizontal}, V: {moveVertical}");
+       // Debug.Log($"Input - H: {moveHorizontal}, V: {moveVertical}");
 
         moveDir = (moveRight * moveHorizontal) + (moveForward * moveVertical);
         moveDir = moveDir.normalized;
 
         anim.SetFloat("Speed", moveDir.magnitude);
 
-        Debug.Log($"Horizontal: {Input.GetAxis("Horizontal")} | Vertical: {Input.GetAxis("Vertical")}");
+       // Debug.Log($"Horizontal: {Input.GetAxis("Horizontal")} | Vertical: {Input.GetAxis("Vertical")}");
 
     }
 
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!run) return;
 
-        Debug.Log("moveDir inside FixedUpdate: " + moveDir);
+        //Debug.Log("moveDir inside FixedUpdate: " + moveDir);
 
         // Move the player
         Vector3 move = moveDir * speed * Time.fixedDeltaTime;
@@ -96,10 +96,10 @@ public class PlayerMovement : MonoBehaviour
         moveRight.Normalize();
 
         // Optional: Draw debug rays
-        Debug.DrawRay(transform.position, moveForward * 2f, Color.green);
-        Debug.DrawRay(transform.position, moveRight * 2f, Color.blue);
+       // Debug.DrawRay(transform.position, moveForward * 2f, Color.green);
+        //Debug.DrawRay(transform.position, moveRight * 2f, Color.blue);
 
-        Debug.Log("moveForward: " + moveForward + ", moveRight: " + moveRight);
+       // Debug.Log("moveForward: " + moveForward + ", moveRight: " + moveRight);
 
     }
 }
