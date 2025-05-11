@@ -23,10 +23,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        updateDirections();
 
         if (anim == null)
-            Debug.LogError("Animator not found!");
+            Debug.LogError("Animator not assigned!");
         if (modelTransform == null)
             Debug.LogError("Model Transform not assigned!");
     }
@@ -39,15 +38,8 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-       // Debug.Log($"Input - H: {moveHorizontal}, V: {moveVertical}");
-
         moveDir = (moveRight * moveHorizontal) + (moveForward * moveVertical);
         moveDir = moveDir.normalized;
-
-        //anim.SetFloat("Speed", moveDir.magnitude);
-
-       // Debug.Log($"Horizontal: {Input.GetAxis("Horizontal")} | Vertical: {Input.GetAxis("Vertical")}");
-
     }
 
     void FixedUpdate()
