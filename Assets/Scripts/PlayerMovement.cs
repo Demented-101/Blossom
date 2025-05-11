@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         moveDir = (moveRight * moveHorizontal) + (moveForward * moveVertical);
         moveDir = moveDir.normalized;
 
-        anim.SetFloat("Speed", moveDir.magnitude);
+        //anim.SetFloat("Speed", moveDir.magnitude);
 
        // Debug.Log($"Horizontal: {Input.GetAxis("Horizontal")} | Vertical: {Input.GetAxis("Vertical")}");
 
@@ -60,11 +60,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = moveDir * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + move);
 
-        // Rotate model toward movement direction
+        // Rotate model toward movement direction and play animation
         if (moveDir != Vector3.zero)
         {
+            anim.SetBool("Walking", true);
             Quaternion targetRot = Quaternion.LookRotation(moveDir);
             modelTransform.rotation = Quaternion.Slerp(modelTransform.rotation, targetRot, 10f * Time.fixedDeltaTime);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
         }
 
         // Jump logic
@@ -96,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         moveRight.Normalize();
 
         // Optional: Draw debug rays
-       // Debug.DrawRay(transform.position, moveForward * 2f, Color.green);
+        //Debug.DrawRay(transform.position, moveForward * 2f, Color.green);
         //Debug.DrawRay(transform.position, moveRight * 2f, Color.blue);
 
        // Debug.Log("moveForward: " + moveForward + ", moveRight: " + moveRight);
