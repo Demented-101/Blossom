@@ -3200,6 +3200,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107090394206812256, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 393935264969531820, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -5406,6 +5410,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 338961370}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+--- !u!114 &1065168108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2560864453273811926, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+  m_PrefabInstance: {fileID: 640706528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1068624413
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,35 +5671,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1840823616}
-  - {fileID: 1648727052}
   - {fileID: 658060382}
-  - {fileID: 1322564360}
-  - {fileID: 1401659196}
-  - {fileID: 1179675965}
   - {fileID: 1301582339}
-  - {fileID: 644314290}
   - {fileID: 1588161770}
-  - {fileID: 1002836278}
-  - {fileID: 151798422}
   - {fileID: 588998057}
   - {fileID: 596164677}
   - {fileID: 2045338172}
   - {fileID: 1984667329}
   - {fileID: 314726976}
   - {fileID: 1470550415}
-  - {fileID: 1730882954}
   - {fileID: 2014219423}
-  - {fileID: 1383261106}
   - {fileID: 898672064}
-  - {fileID: 1335493635}
   - {fileID: 386512469}
   - {fileID: 504506366}
-  - {fileID: 1781652381}
   - {fileID: 1523310779}
   - {fileID: 55662700}
-  - {fileID: 1227341330}
-  - {fileID: 1658475014}
   - {fileID: 840793025}
   - {fileID: 1877256990}
   - {fileID: 547454714}
@@ -8832,6 +8833,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9085223792216151150, guid: de5bf648a50643240a930321d38342c7, type: 3}
   m_PrefabInstance: {fileID: 455830441}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1520509660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1427310756297481250, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+  m_PrefabInstance: {fileID: 640706528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1523310778
 GameObject:
   m_ObjectHideFlags: 0
@@ -10251,12 +10263,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 1754958948}
   theFlower: {fileID: 1200922583}
-  tulipNumber: {fileID: 401834680}
+  tulipNumber: {fileID: 1520509660}
   roseNumber: {fileID: 1177569741}
   orchidNumber: {fileID: 1352966248}
   foxgloveNumber: {fileID: 156630191}
   daisyNumber: {fileID: 2255372}
-  nightshadeNumber: {fileID: 116417610}
+  nightshadeNumber: {fileID: 1065168108}
   lotvNumber: {fileID: 1159639773}
   sweetpeaNumber: {fileID: 1013450914}
 --- !u!1 &1865049389
@@ -11988,3 +12000,4 @@ SceneRoots:
   - {fileID: 340659208}
   - {fileID: 338961370}
   - {fileID: 209409396}
+  - {fileID: 1121081519}
