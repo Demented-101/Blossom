@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -263,8 +264,13 @@ public class SellFlowers : MonoBehaviour
        
         profit = profit + flowerTotal * 3;
         
+        //updating player data
+        saveData.money = profit;
+        PlayerData.money = profit;
+        SaveManager.Save();
         Debug.Log("Sold! New balance " + profit);
+        Debug.Log(saveData.money);
+       
 
-        
     }
 }

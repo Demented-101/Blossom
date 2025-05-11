@@ -23,7 +23,7 @@ public class SaveData
     public void loadBasics()
     {
         // set basic variables
-        money = 100;
+        money = 0;
         inventory = new string[12]; // 12 is inventory size
     }
 }

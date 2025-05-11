@@ -29,7 +29,7 @@ public static class SaveManager
         {
             SaveData data = new SaveData();
             string json = File.ReadAllText(path);
-            Debug.Log(json);
+            //Debug.Log(json);
             JsonUtility.FromJsonOverwrite(json, data);
             return data;
         }
