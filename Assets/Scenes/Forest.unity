@@ -10331,12 +10331,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 1754958948}
   theFlower: {fileID: 1200922583}
-  tulipNumber: {fileID: 0}
+  tulipNumber: {fileID: 1520509660}
   roseNumber: {fileID: 1177569741}
   orchidNumber: {fileID: 1352966248}
   foxgloveNumber: {fileID: 156630191}
   daisyNumber: {fileID: 2255372}
-  nightshadeNumber: {fileID: 0}
+  nightshadeNumber: {fileID: 1065168108}
   lotvNumber: {fileID: 1159639773}
   sweetpeaNumber: {fileID: 1013450914}
 --- !u!1 &1865049389
