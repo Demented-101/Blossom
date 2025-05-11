@@ -17,6 +17,7 @@ TagManager:
   - Boulder
   - Platform
   - InteractLabel
+  - musicPlayer
   layers:
   - Default
   - TransparentFX
