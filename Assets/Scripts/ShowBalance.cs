@@ -5,7 +5,8 @@ using TMPro;
 
 public class ShowBalance : MonoBehaviour
 {
-    SellFlowers sellFlowers; 
+    SellFlowers sellFlowers;
+    SaveData data;
     public TMP_Text profitText;
     private int money;
 
@@ -30,8 +31,8 @@ public class ShowBalance : MonoBehaviour
 
     void Update()
     {
-        
-        profitText.text = "Profit - " + money;
+        SaveData data = SaveManager.Load();
+        profitText.text = "Profit - " + data.money;
 
     }
   
