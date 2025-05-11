@@ -5,12 +5,14 @@ using TMPro;
 
 public class ShowBalance : MonoBehaviour
 {
-    SaveData saveData;
     SellFlowers sellFlowers; 
-    public TMP_Text profitText; 
+    public TMP_Text profitText;
+    private int money;
 
     void Start()
     {
+        SaveData data = SaveManager.Load();
+        money = data.money;
         // Check if profitText is assigne
         if (profitText == null)
         {
@@ -22,20 +24,14 @@ public class ShowBalance : MonoBehaviour
             }
         }
 
-        // Ensure saveData is initialize
-        if (saveData == null)
-        {
-            Debug.LogWarning("ShowBalance: saveData is not assigned. Creating a new SaveData instance.");
-            saveData = new SaveData(); 
-            saveData.loadBasics(); 
-        }
 
     }
 
 
     void Update()
     {
-        profitText.text = "Profit: " + sellFlowers.profit;
+        
+        profitText.text = "Profit - " + money;
 
     }
   

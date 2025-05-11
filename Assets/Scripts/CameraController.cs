@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
 
     private void Start(){
         transform.eulerAngles = new Vector3(0,startRotation,0); // sets the camera's rotation to the start rotation
+        player.updateDirections();
     }
 
     void Update()
