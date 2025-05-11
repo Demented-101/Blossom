@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class SellFlowers : MonoBehaviour
 {
     public Button toggleButton;
+    public Button closeButton;
+     
     public Button sellButton; 
 
     public Sprite menuSprite;  
@@ -24,6 +26,7 @@ public class SellFlowers : MonoBehaviour
 
     private bool isMenuOpen = false;
     private Image buttonImage;
+    private Image closeImage;
 
     
 
@@ -39,15 +42,28 @@ public class SellFlowers : MonoBehaviour
 
     void Start()
     {
+        SaveData data = SaveManager.Load();
+        profit = data.money;
+
+        //Open button initialisation
         buttonImage = toggleButton.GetComponent<Image>();
         toggleButton.onClick.AddListener(ToggleMenu);
+
+        //Close button initilisaition
+        closeImage = closeButton.GetComponent<Image>();
+        closeButton.onClick.AddListener(ToggleMenu);
+        closeButton.gameObject.SetActive(false);
+
+        //Sell button
+        sellButton.gameObject.SetActive(false);
+
         isSellButtonPressed = false;
         profit = saveData.money;
         FlowerCounter(); 
         UpdateUI();
     }
 
-    void ToggleMenu()
+    public void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
         UpdateUI();
@@ -83,7 +99,12 @@ public class SellFlowers : MonoBehaviour
 
             noteText.enabled = true; 
             sellButton.enabled = true; 
-            profitText.enabled = true; 
+            profitText.enabled = true;
+
+            toggleButton.gameObject.SetActive(false);
+            closeButton.gameObject.SetActive(true);
+            sellButton.gameObject.SetActive(true);
+            Debug.Log("Enabled");
         }
         else
         {
@@ -113,7 +134,12 @@ public class SellFlowers : MonoBehaviour
 
             noteText.enabled = false; 
             sellButton.enabled = false; 
-            profitText.enabled = false; 
+            profitText.enabled = false;
+
+           toggleButton.gameObject.SetActive(true);
+            closeButton.gameObject.SetActive(false);
+            sellButton.gameObject.SetActive(false);
+            Debug.Log("Disabled");
         }
     }
 
@@ -236,8 +262,8 @@ public class SellFlowers : MonoBehaviour
 
        
         profit = profit + flowerTotal * 3;
-        saveData.money = profit; //update balance
-        Debug.Log("Sold! New balance " + saveData.money);
+        
+        Debug.Log("Sold! New balance " + profit);
 
         
     }

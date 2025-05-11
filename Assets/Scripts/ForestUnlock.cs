@@ -6,7 +6,7 @@ public class ForestUnlock : MonoBehaviour
 {
     public GameObject[] areaToUnlock; // This trigger's specific area
     public int profitThreshold;        // Profit needed to unlock this area
-    public int currentProfit;
+    private int currentProfit;
 
     public float range = 3;
     public PlayerMovement player;
@@ -18,6 +18,9 @@ public class ForestUnlock : MonoBehaviour
 
     void Start()
     {
+        SaveData data = SaveManager.Load();
+        currentProfit = data.money;
+        Debug.Log(currentProfit);
         LockArea();
     }
 
