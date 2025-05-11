@@ -14,6 +14,8 @@ public class PlayerData : MonoBehaviour
     // inventory
     public static string[] inventory;
 
+    public static float musicTimestamp;
+
     private void Start()
     {
         if (loaded) {return;}

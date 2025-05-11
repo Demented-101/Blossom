@@ -10,15 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        if(PlayerPrefs.GetInt("loadSaved") == 1)
-        {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("LastScene"));
-        }
-        else
-        {
-            SceneManager.LoadScene("Garden");
-        }
-
+        SceneManager.LoadScene("Garden");
     }
     public void MainScene()
     {
