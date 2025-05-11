@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Garden
   range: 3
-  player: {fileID: 967572534597487352, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+  player: {fileID: 2118771617}
   run: 1
 --- !u!1 &621089389
 GameObject:

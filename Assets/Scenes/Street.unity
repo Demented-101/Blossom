@@ -6586,6 +6586,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6666731975739301868, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: allowRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666731975739301868, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: startRotation
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 7156509464179224781, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
