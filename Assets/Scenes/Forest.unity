@@ -421,7 +421,6 @@ MonoBehaviour:
   areaToUnlock:
   - {fileID: 1628142339}
   profitThreshold: 500
-  currentProfit: 1000
   range: 3
   player: {fileID: 2118771617}
   run: 1
@@ -2086,7 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdaec2c02a11825439ddaa5e93b0ba8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 
+  scene: Garden
   range: 3
   player: {fileID: 967572534597487352, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
   run: 1
@@ -2895,7 +2894,6 @@ MonoBehaviour:
   areaToUnlock:
   - {fileID: 1427193927}
   profitThreshold: 1000
-  currentProfit: 1000
   range: 3
   player: {fileID: 2118771617}
   run: 1
@@ -4623,7 +4621,6 @@ MonoBehaviour:
   areaToUnlock:
   - {fileID: 908822623}
   profitThreshold: 300
-  currentProfit: 1000
   range: 3
   player: {fileID: 2118771617}
   run: 1
@@ -7282,7 +7279,6 @@ MonoBehaviour:
   areaToUnlock:
   - {fileID: 2035732684}
   profitThreshold: 700
-  currentProfit: 1000
   range: 3
   player: {fileID: 2118771617}
   run: 1
@@ -7313,7 +7309,6 @@ MonoBehaviour:
   - {fileID: 636738394}
   - {fileID: 1508974703}
   profitThreshold: 100
-  currentProfit: 1000
   range: 3
   player: {fileID: 2118771617}
   run: 1
