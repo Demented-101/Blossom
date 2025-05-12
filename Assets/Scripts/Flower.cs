@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flower : MonoBehaviour
 {
     private GameObject player;
+    private GameObject label;
     public float pickupDistance = 2f;
     public string flowerName = "N/a";
     public bool doPickup = false;
@@ -25,13 +26,16 @@ public class Flower : MonoBehaviour
         {
             if (player.GetComponent<PlayerData>().AttemptPickup(flowerName)) // add to inventory
             {
+
                 Object.Destroy(gameObject); // destroy object
+                Object.Destroy(label); // destroy the "pick" label 
             }
         }
     }
 
-    public void SetupInteractionLabel(GameObject prefab){
-        GameObject label = Instantiate(prefab);
+    public void SetupInteractionLabel(GameObject prefab)
+    {
+        label = Instantiate(prefab);
 
         InteractLabel interactLabel = label.GetComponent<InteractLabel>();
         interactLabel.text = "Pick " + flowerName;
