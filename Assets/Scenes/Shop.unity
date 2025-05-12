@@ -561,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownButton: {fileID: 908931909}
   cooldownText: {fileID: 1590477381}
-  dayText: {fileID: 0}
+  dayText: {fileID: 51873416}
 --- !u!224 &26643219
 RectTransform:
   m_ObjectHideFlags: 0
