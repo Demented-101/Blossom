@@ -32,6 +32,7 @@ public class SellFlowers : MonoBehaviour
     
 
     public TMP_Text noteText; 
+    public TMP_Text countdown; 
     public TMP_Text inStock; 
     public TMP_Text numberSold; 
     public TMP_Text profitText; 
@@ -57,6 +58,7 @@ public class SellFlowers : MonoBehaviour
 
         //Sell button
         sellButton.gameObject.SetActive(false);
+        countdown.gameObject.SetActive(false); 
 
         isSellButtonPressed = false;
         profit = saveData.money;
@@ -79,6 +81,7 @@ public class SellFlowers : MonoBehaviour
             inStock.enabled = true;
             numberSold.enabled = true;
             theBackground.SetActive(true); 
+            countdown.gameObject.SetActive(true); 
 
             tulipStock.enabled = true; 
             foxgloveStock.enabled = true; 
@@ -114,6 +117,7 @@ public class SellFlowers : MonoBehaviour
             inStock.enabled = false;
             numberSold.enabled = false;
             theBackground.SetActive(false); 
+            countdown.gameObject.SetActive(false); 
 
             tulipStock.enabled = false; 
             foxgloveStock.enabled = false; 
