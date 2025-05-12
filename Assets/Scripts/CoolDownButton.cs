@@ -53,7 +53,7 @@ public class CooldownButton : MonoBehaviour
             if (!cooldownEnded)
             {
                 cooldownButton.interactable = true;
-                dayText.text = (int.Parse(dayText.text) + 1).ToString();
+                dayText.text = "Day - " + (int.Parse(dayText.text.Substring(6) + 1).ToString());
                 cooldownEnded = true;
             }
         }
