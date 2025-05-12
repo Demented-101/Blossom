@@ -561,6 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownButton: {fileID: 908931909}
   cooldownText: {fileID: 1590477381}
+  dayText: {fileID: 0}
 --- !u!224 &26643219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26458,6 +26459,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107090394206812256, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 393935264969531820, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -26565,6 +26570,10 @@ PrefabInstance:
     - target: {fileID: 5086444306386251972, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
+      objectReference: {fileID: 1348998411}
+    - target: {fileID: 5086444306386251972, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5132505211472020260, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26625,6 +26634,10 @@ PrefabInstance:
     - target: {fileID: 6494897966181518061, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 
+      objectReference: {fileID: 1348998411}
+    - target: {fileID: 6494897966181518061, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6666731975739301868, guid: afe6926f2a01bbf40806aa79a4117713, type: 3}
       propertyPath: allowRotation
