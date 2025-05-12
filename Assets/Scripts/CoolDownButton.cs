@@ -2,14 +2,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using Unity.VisualScripting.AssemblyQualifiedNameParser;
 
 public class CooldownButton : MonoBehaviour
 {
     public Button cooldownButton;
     public TMP_Text cooldownText;
+    public TMP_Text dayText; 
 
-    private float cooldownDuration = 300f; // 5 minutes in seconds
+    private float cooldownDuration = 2f; // 5 minutes in seconds
     private DateTime lastPressedTime;
+
+    private bool cooldownEnded = false; // Flag to track cooldown end
 
     void Start()
     {
@@ -42,11 +46,16 @@ public class CooldownButton : MonoBehaviour
         {
             cooldownButton.interactable = false;
             cooldownText.text = $"Available in {Mathf.Ceil(secondsRemaining)}s";
+            cooldownEnded = false; // Reset flag during cooldown
         }
         else
         {
-            cooldownButton.interactable = true;
-            cooldownText.text = "Press Me!";
+            if (!cooldownEnded)
+            {
+                cooldownButton.interactable = true;
+                dayText.text = (int.Parse(dayText.text) + 1).ToString();
+                cooldownEnded = true;
+            }
         }
     }
 
@@ -56,7 +65,8 @@ public class CooldownButton : MonoBehaviour
         PlayerPrefs.SetString("LastButtonPress", lastPressedTime.ToBinary().ToString());
         PlayerPrefs.Save();
 
+        cooldownEnded = false; // Reset flag for the new cooldown
         Debug.Log("Button Pressed!");
-        // Put your button logic here (e.g., reward, action, etc.)
+        // Your button logic here
     }
 }

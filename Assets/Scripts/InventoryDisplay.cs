@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InventoryDisplay : MonoBehaviour
 {
     public PlayerData playerData; 
-    public Flower theFlower; 
+    //public Flower theFlower; 
 
     public TextMeshProUGUI tulipNumber, roseNumber, orchidNumber, foxgloveNumber, daisyNumber, nightshadeNumber, lotvNumber, sweetpeaNumber;
 
